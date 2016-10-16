@@ -18,6 +18,12 @@ function startTimer(id, deadline){
                     + '<span>' + timer.hours + '</span>'
                     + '<span>' + timer.minutes + '</span>'
                     + '<span>' + timer.seconds + '</span>';
+
+    if(timer.total < 1){
+      clearInterval(timerInterval);
+      clock.innerHTML = '<span>0</span><span>0</span><span>0</span><span>0</span>';
+    }
+
   }, 1000);
 }
 
