@@ -24,10 +24,10 @@ h3{
   float: left;
   text-align: center;
   font-size: 84px;
-  margin: 0 2.5%;
+  margin: 0 2%;
   color: #fff;
   padding: 20px;
-  width: 20%;
+  width: 16%;
   border-radius: 20px;
   box-sizing: border-box;
 }
@@ -43,7 +43,7 @@ h3{
 #clock span:nth-child(4){
   background: #2dcb74;
 }
-#clock span:nth-child(4){
+#clock span:nth-child(5){
   background: #2dcb74;
 }
 #clock:after{
@@ -53,7 +53,7 @@ h3{
 }
 #units span{
   float: left;
-  width: 25%;
+  width: 20%;
   text-align: center;
   margin-top: 30px;
   color: #ddd;
