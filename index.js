@@ -1,7 +1,8 @@
 function updateTimer(deadline){
   var time = deadline - new Date();
   return {
-    'days': Math.floor( time/(1000*60*60*24) ),
+    'years': Math.floor( time/(1000*60*60*24*365) ),
+    'days': Math.floor( time/(1000*60*60*24) % 365 ),
     'hours': Math.floor( (time/(1000*60*60)) % 24 ),
     'minutes': Math.floor( (time/1000/60) % 60 ),
     'seconds': Math.floor( (time/1000) % 60 ),
@@ -22,7 +23,8 @@ function startTimer(id, deadline){
     var clock = document.getElementById(id);
     var timer = updateTimer(deadline);
 
-    clock.innerHTML = '<span>' + timer.days + '</span>'
+    clock.innerHTML = '<span>' + timer.years + '</span>'
+                    + '<span>' + timer.days + '</span>'
                     + '<span>' + timer.hours + '</span>'
                     + '<span>' + timer.minutes + '</span>'
                     + '<span>' + timer.seconds + '</span>';
@@ -33,6 +35,7 @@ function startTimer(id, deadline){
     if(timer.seconds == 59) animateClock(spans[2]);
     if(timer.minutes == 59 && timer.seconds == 59) animateClock(spans[1]);
     if(timer.hours == 23 && timer.minutes == 59 && timer.seconds == 59) animateClock(spans[0]);
+    if(timer.days == 364 && timer.hours == 23 && timer.minutes == 59 && timer.seconds == 59) animateClock(spans[0]);
 
     //check for end of timer
     if(timer.total < 1){
@@ -46,6 +49,6 @@ function startTimer(id, deadline){
 
 
 window.onload = function(){
-  var deadline = new Date("April 25, 2016 17:15:00");
+  var deadline = new Date("January 01, 2045 00:00:01");
   startTimer("clock", deadline);
 };
