@@ -1,5 +1,3 @@
-var express = require('express')
-
 function updateTimer(deadline){
   var time = deadline - new Date();
   return {
